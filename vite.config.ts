@@ -148,7 +148,7 @@ const githubPages = process.env.GITHUB_PAGES === "1";
 // The dev server starts once `src/router.tsx` and `src/routes/` exist — see
 // AGENTS.md § "First scaffold".
 export default defineConfig(({ command, isPreview }) => ({
-  base: githubPages ? "/alyaindriani/" : "/",
+  base: githubPages ? "/acreathings/" : "/",
   server: {
     host: "0.0.0.0",
     port: 8080,
