@@ -3,6 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { X } from "lucide-react";
 import { PageHero, SiteShell } from "@/components/site-shell";
 import { shots, type Shot } from "@/lib/report";
+import { publicUrl } from "@/lib/public-url";
 
 export const Route = createFileRoute("/dokumentasi")({
   head: () => ({ meta: [{ title: "Dokumentasi — Acrea Things" }] }),
@@ -75,7 +76,7 @@ function Dokumentasi() {
         <section>
           <h2 className="font-display text-3xl">Logo usaha</h2>
           <img
-            src="/media/logo-acrea.jpg"
+            src={publicUrl("/media/logo-acrea.jpg")}
             alt="Logo Acrea Things dengan lingkar bunga"
             className="mx-auto mt-5 w-full max-w-sm rounded-2xl border border-line bg-paper object-contain"
           />

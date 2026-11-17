@@ -3,6 +3,7 @@ import { ArrowRight, MapPin, Palette, Wallet } from "lucide-react";
 import { SiteShell } from "@/components/site-shell";
 import { identity, members, rp, totals } from "@/lib/report";
 import { colorways } from "@/lib/order";
+import { publicUrl } from "@/lib/public-url";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -56,7 +57,7 @@ function Home() {
           </div>
           <figure>
             <img
-              src="/media/b1-produk.jpg"
+              src={publicUrl("/media/b1-produk.jpg")}
               alt="Deretan bag charm Acrea Things yang sudah dikemas"
               className="aspect-4/5 w-full rounded-2xl border border-line object-cover"
             />
@@ -112,7 +113,7 @@ function Home() {
       <section className="mx-auto max-w-6xl px-5 pb-4">
         <div className="grid items-center gap-8 md:grid-cols-2">
           <img
-            src="/media/logo-acrea.jpg"
+            src={publicUrl("/media/logo-acrea.jpg")}
             alt="Logo Acrea Things"
             className="mx-auto w-full max-w-sm rounded-2xl border border-line bg-paper object-contain"
           />

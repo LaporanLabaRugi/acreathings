@@ -1,4 +1,5 @@
 import { rp } from "@/lib/report";
+import { publicUrl } from "@/lib/public-url";
 
 export const WHATSAPP_NUMBER = "6289520262296";
 export const WHATSAPP_LABEL = "0895-2026-2296 (Vifian)";
@@ -27,20 +28,20 @@ export const ships: { id: ShipId; label: string }[] = [
 ];
 
 export const colorways: { name: string; src: string }[] = [
-  { name: "Spiderman", src: "/media/colors/spiderman.jpg" },
-  { name: "Rarity", src: "/media/colors/rarity.jpg" },
-  { name: "Carat", src: "/media/colors/carat.jpg" },
-  { name: "Cinnamoroll", src: "/media/colors/cinnamoroll.jpg" },
-  { name: "Hello Kitty", src: "/media/colors/hello-kitty.jpg" },
-  { name: "Ariel", src: "/media/colors/ariel.jpg" },
-  { name: "Panda", src: "/media/colors/panda.jpg" },
-  { name: "Blueberry", src: "/media/colors/blueberry.jpg" },
-  { name: "Strawberry Matcha", src: "/media/colors/strawberry-matcha.jpg" },
-  { name: "Winnie the Pooh", src: "/media/colors/winnie.jpg" },
+  { name: "Spiderman", src: publicUrl("/media/colors/spidermanjpg") },
+  { name: "Rarity", src: publicUrl("/media/colors/rarityjpg") },
+  { name: "Carat", src: publicUrl("/media/colors/caratjpg") },
+  { name: "Cinnamoroll", src: publicUrl("/media/colors/cinnamorolljpg") },
+  { name: "Hello Kitty", src: publicUrl("/media/colors/hello-kittyjpg") },
+  { name: "Ariel", src: publicUrl("/media/colors/arieljpg") },
+  { name: "Panda", src: publicUrl("/media/colors/pandajpg") },
+  { name: "Blueberry", src: publicUrl("/media/colors/blueberryjpg") },
+  { name: "Strawberry Matcha", src: publicUrl("/media/colors/strawberry-matchajpg") },
+  { name: "Winnie the Pooh", src: publicUrl("/media/colors/winniejpg") },
 ];
 
 export function frameSrc(frame: number) {
-  return `/media/frames/${String(frame).padStart(2, "0")}.jpg`;
+  return publicUrl(`/media/frames/${String(frame).padStart(2, "0")}.jpg`);
 }
 
 export function isColorName(value: unknown): value is string {

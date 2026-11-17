@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { Menu, MessageCircle, Printer, X } from "lucide-react";
 import { identity } from "@/lib/report";
+import { publicUrl } from "@/lib/public-url";
 import { WHATSAPP_LABEL, WHATSAPP_NUMBER } from "@/lib/order";
 
 const NAV = [
@@ -32,7 +33,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
         <div className="mx-auto flex min-h-16 max-w-6xl items-center justify-between gap-3 px-5 py-2">
           <Link to="/" className="flex min-w-0 items-center gap-3">
             <img
-              src="/media/logo-acrea.jpg"
+              src={publicUrl("/media/logo-acrea.jpg")}
               alt="Logo Acrea Things"
               className="size-11 shrink-0 rounded-full border border-line object-cover"
             />

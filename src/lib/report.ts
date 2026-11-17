@@ -1,3 +1,5 @@
+import { publicUrl } from "@/lib/public-url";
+
 export const identity = {
   brand: "Acrea Things",
   meaning: "Acrylic and Create",
@@ -399,34 +401,34 @@ export type Shot = { src: string; alt: string; caption: string };
 
 export const shots = {
   catalog: [
-    { src: "/media/katalog-produk.jpg", alt: "Katalog paket Basic, Combo, dan Complete", caption: "Katalog paket" },
-    { src: "/media/katalog-warna.jpg", alt: "Sepuluh kombinasi warna makrame", caption: "Macrame colour" },
-    { src: "/media/katalog-frame.jpg", alt: "Dua puluh empat desain photostrip frame", caption: "Photostrip frame" },
+    { src: publicUrl("/media/katalog-produk.jpg"), alt: "Katalog paket Basic, Combo, dan Complete", caption: "Katalog paket" },
+    { src: publicUrl("/media/katalog-warna.jpg"), alt: "Sepuluh kombinasi warna makrame", caption: "Macrame colour" },
+    { src: publicUrl("/media/katalog-frame.jpg"), alt: "Dua puluh empat desain photostrip frame", caption: "Photostrip frame" },
   ],
   media: [
-    { src: "/media/poster-batch1.jpg", alt: "Poster pre-order Batch 1", caption: "Poster Batch 1, 21–23 September" },
-    { src: "/media/poster-batch2.jpg", alt: "Poster pre-order Batch 2", caption: "Poster Batch 2, 27–30 September" },
-    { src: "/media/ig-profil.jpg", alt: "Profil Instagram Acrea Things", caption: "Profil Instagram @acreathings" },
-    { src: "/media/wa-komunitas.jpg", alt: "Promosi di komunitas WhatsApp", caption: "Promosi komunitas" },
+    { src: publicUrl("/media/poster-batch1.jpg"), alt: "Poster pre-order Batch 1", caption: "Poster Batch 1, 21–23 September" },
+    { src: publicUrl("/media/poster-batch2.jpg"), alt: "Poster pre-order Batch 2", caption: "Poster Batch 2, 27–30 September" },
+    { src: publicUrl("/media/ig-profil.jpg"), alt: "Profil Instagram Acrea Things", caption: "Profil Instagram @acreathings" },
+    { src: publicUrl("/media/wa-komunitas.jpg"), alt: "Promosi di komunitas WhatsApp", caption: "Promosi komunitas" },
   ],
   batch1: [
-    { src: "/media/b1-produk.jpg", alt: "Produk Batch 1 tersusun di atas rumput", caption: "Hasil rakitan Batch 1" },
-    { src: "/media/b1-resi.jpg", alt: "Resi pengiriman Shopee Batch 1", caption: "Resi pengiriman" },
-    { src: "/media/b1-a.jpg", alt: "Produk bag charm di tangan pembeli", caption: "Penyerahan pesanan" },
-    { src: "/media/b1-b.jpg", alt: "Dua pembeli menunjukkan pesanan", caption: "Dokumentasi pembeli" },
-    { src: "/media/b1-c.jpg", alt: "Dua pembeli memegang paket pesanan", caption: "Dokumentasi pembeli" },
-    { src: "/media/b1-d.jpg", alt: "Dua pembeli di area kampus", caption: "COD sekitar kampus" },
-    { src: "/media/b1-e.jpg", alt: "Dua pembeli duduk bersama pesanan", caption: "Dokumentasi pembeli" },
+    { src: publicUrl("/media/b1-produk.jpg"), alt: "Produk Batch 1 tersusun di atas rumput", caption: "Hasil rakitan Batch 1" },
+    { src: publicUrl("/media/b1-resi.jpg"), alt: "Resi pengiriman Shopee Batch 1", caption: "Resi pengiriman" },
+    { src: publicUrl("/media/b1-a.jpg"), alt: "Produk bag charm di tangan pembeli", caption: "Penyerahan pesanan" },
+    { src: publicUrl("/media/b1-b.jpg"), alt: "Dua pembeli menunjukkan pesanan", caption: "Dokumentasi pembeli" },
+    { src: publicUrl("/media/b1-c.jpg"), alt: "Dua pembeli memegang paket pesanan", caption: "Dokumentasi pembeli" },
+    { src: publicUrl("/media/b1-d.jpg"), alt: "Dua pembeli di area kampus", caption: "COD sekitar kampus" },
+    { src: publicUrl("/media/b1-e.jpg"), alt: "Dua pembeli duduk bersama pesanan", caption: "Dokumentasi pembeli" },
   ],
   batch2: [
-    { src: "/media/b2-produk.jpg", alt: "Produk Batch 2 tersusun di atas meja", caption: "Hasil rakitan Batch 2" },
-    { src: "/media/b2-paket.jpg", alt: "Paket polymailer merah muda siap kirim", caption: "Paket luar kota" },
-    { src: "/media/b2-a.jpg", alt: "Pembeli memegang pesanan Batch 2", caption: "Penyerahan pesanan" },
-    { src: "/media/b2-b.jpg", alt: "Pembeli menunjukkan charm di kelas", caption: "Dokumentasi pembeli" },
-    { src: "/media/b2-c.jpg", alt: "Pembeli memegang zip pouch", caption: "Dokumentasi pembeli" },
-    { src: "/media/b2-d.jpg", alt: "Pembeli menunjukkan dua pesanan", caption: "Dokumentasi pembeli" },
-    { src: "/media/b2-e.jpg", alt: "Pembeli memegang charm di kelas", caption: "Dokumentasi pembeli" },
-    { src: "/media/b2-f.jpg", alt: "Pembeli memegang paket pesanan", caption: "Dokumentasi pembeli" },
+    { src: publicUrl("/media/b2-produk.jpg"), alt: "Produk Batch 2 tersusun di atas meja", caption: "Hasil rakitan Batch 2" },
+    { src: publicUrl("/media/b2-paket.jpg"), alt: "Paket polymailer merah muda siap kirim", caption: "Paket luar kota" },
+    { src: publicUrl("/media/b2-a.jpg"), alt: "Pembeli memegang pesanan Batch 2", caption: "Penyerahan pesanan" },
+    { src: publicUrl("/media/b2-b.jpg"), alt: "Pembeli menunjukkan charm di kelas", caption: "Dokumentasi pembeli" },
+    { src: publicUrl("/media/b2-c.jpg"), alt: "Pembeli memegang zip pouch", caption: "Dokumentasi pembeli" },
+    { src: publicUrl("/media/b2-d.jpg"), alt: "Pembeli menunjukkan dua pesanan", caption: "Dokumentasi pembeli" },
+    { src: publicUrl("/media/b2-e.jpg"), alt: "Pembeli memegang charm di kelas", caption: "Dokumentasi pembeli" },
+    { src: publicUrl("/media/b2-f.jpg"), alt: "Pembeli memegang paket pesanan", caption: "Dokumentasi pembeli" },
   ],
 };
 
