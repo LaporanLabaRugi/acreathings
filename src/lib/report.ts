@@ -1,4 +1,4 @@
-import { publicUrl } from "@/lib/public-url";
+import { publicUrl } from "./public-url.ts";
 
 export const identity = {
   brand: "Acrea Things",
@@ -17,10 +17,7 @@ export const identity = {
   cashDate: "2 Oktober 2026",
 };
 
-export const lecturers = [
-  "Lorensa Bunga Ayu S, S.E, M.Ak",
-  "Chaidir Iswanaji, S.E., M.Ak.",
-];
+export const lecturers = ["Lorensa Bunga Ayu S, S.E, M.Ak", "Chaidir Iswanaji, S.E., M.Ak."];
 
 export const members = [
   { name: "Nadjwa Aurella H.A", nim: "2420104051", role: "Keuangan" },
@@ -51,33 +48,21 @@ const pack = [
 export const hppBatch1: CostVariant[] = [
   {
     name: "Basic Lobster",
-    lines: [
-      { name: "Macrame", amount: 2252 },
-      { name: "Lobster hook", amount: 502 },
-      ...pack,
-    ],
+    lines: [{ name: "Macrame", amount: 2252 }, { name: "Lobster hook", amount: 502 }, ...pack],
     total: 3187,
     margin: "47%",
     sell: 6000,
   },
   {
     name: "Basic Ballchain",
-    lines: [
-      { name: "Macrame", amount: 2252 },
-      { name: "Ballchain", amount: 0 },
-      ...pack,
-    ],
+    lines: [{ name: "Macrame", amount: 2252 }, { name: "Ballchain", amount: 0 }, ...pack],
     total: 2685,
     margin: "46%",
     sell: 5000,
   },
   {
     name: "Basic Carabiner",
-    lines: [
-      { name: "Macrame", amount: 2252 },
-      { name: "Carabiner", amount: 2491 },
-      ...pack,
-    ],
+    lines: [{ name: "Macrame", amount: 2252 }, { name: "Carabiner", amount: 2491 }, ...pack],
     total: 5176,
     margin: "35%",
     sell: 8000,
@@ -128,33 +113,21 @@ export const hppBatch1: CostVariant[] = [
 export const hppBatch2: CostVariant[] = [
   {
     name: "Basic Lobster",
-    lines: [
-      { name: "Macrame", amount: 2369 },
-      { name: "Lobster hook", amount: 502 },
-      ...pack,
-    ],
+    lines: [{ name: "Macrame", amount: 2369 }, { name: "Lobster hook", amount: 502 }, ...pack],
     total: 3304,
     margin: "45%",
     sell: 6000,
   },
   {
     name: "Basic Ballchain",
-    lines: [
-      { name: "Macrame", amount: 2369 },
-      { name: "Ballchain", amount: 0 },
-      ...pack,
-    ],
+    lines: [{ name: "Macrame", amount: 2369 }, { name: "Ballchain", amount: 0 }, ...pack],
     total: 2802,
     margin: "44%",
     sell: 5000,
   },
   {
     name: "Basic Carabiner",
-    lines: [
-      { name: "Macrame", amount: 2369 },
-      { name: "Carabiner", amount: 2449 },
-      ...pack,
-    ],
+    lines: [{ name: "Macrame", amount: 2369 }, { name: "Carabiner", amount: 2449 }, ...pack],
     total: 5251,
     margin: "34%",
     sell: 8000,
@@ -374,6 +347,13 @@ export const flow = [
   },
 ];
 
+export const assumptions = [
+  "HPP dihitung terpisah per batch karena harga carabiner, huruf akrilik, dan tali makrame berubah saat restock.",
+  "Bahan yang tidak dibeli lagi di Batch 2 — frame akrilik, plastik zipper, stiker logo, dan lobster hook — memakai harga beli Batch 1.",
+  "Cetak foto dan kemasan kiriman (polymailer, bubble wrap, dan cetak resi) sebesar Rp1.352 per paket dimasukkan ke HPP produk terjual.",
+  "Produksi dikerjakan manual oleh anggota. Kompensasi tenaga kerja tidak dibebankan sebagai biaya harian, melainkan dialokasikan dari laba bersih.",
+] as const;
+
 export const suggestions = [
   {
     title: "Pengembangan varian",
@@ -401,34 +381,122 @@ export type Shot = { src: string; alt: string; caption: string };
 
 export const shots = {
   catalog: [
-    { src: publicUrl("/media/katalog-produk.jpg"), alt: "Katalog paket Basic, Combo, dan Complete", caption: "Katalog paket" },
-    { src: publicUrl("/media/katalog-warna.jpg"), alt: "Sepuluh kombinasi warna makrame", caption: "Macrame colour" },
-    { src: publicUrl("/media/katalog-frame.jpg"), alt: "Dua puluh empat desain photostrip frame", caption: "Photostrip frame" },
+    {
+      src: publicUrl("/media/katalog-produk.jpg"),
+      alt: "Katalog paket Basic, Combo, dan Complete",
+      caption: "Katalog paket",
+    },
+    {
+      src: publicUrl("/media/katalog-warna.jpg"),
+      alt: "Sepuluh kombinasi warna makrame",
+      caption: "Macrame colour",
+    },
+    {
+      src: publicUrl("/media/katalog-frame.jpg"),
+      alt: "Dua puluh empat desain photostrip frame",
+      caption: "Photostrip frame",
+    },
   ],
   media: [
-    { src: publicUrl("/media/poster-batch1.jpg"), alt: "Poster pre-order Batch 1", caption: "Poster Batch 1, 21–23 September" },
-    { src: publicUrl("/media/poster-batch2.jpg"), alt: "Poster pre-order Batch 2", caption: "Poster Batch 2, 27–30 September" },
-    { src: publicUrl("/media/ig-profil.jpg"), alt: "Profil Instagram Acrea Things", caption: "Profil Instagram @acreathings" },
-    { src: publicUrl("/media/wa-komunitas.jpg"), alt: "Promosi di komunitas WhatsApp", caption: "Promosi komunitas" },
+    {
+      src: publicUrl("/media/poster-batch1.jpg"),
+      alt: "Poster pre-order Batch 1",
+      caption: "Poster Batch 1, 21–23 September",
+    },
+    {
+      src: publicUrl("/media/poster-batch2.jpg"),
+      alt: "Poster pre-order Batch 2",
+      caption: "Poster Batch 2, 27–30 September",
+    },
+    {
+      src: publicUrl("/media/ig-profil.jpg"),
+      alt: "Profil Instagram Acrea Things",
+      caption: "Profil Instagram @acreathings",
+    },
+    {
+      src: publicUrl("/media/wa-komunitas.jpg"),
+      alt: "Promosi di komunitas WhatsApp",
+      caption: "Promosi komunitas",
+    },
   ],
   batch1: [
-    { src: publicUrl("/media/b1-produk.jpg"), alt: "Produk Batch 1 tersusun di atas rumput", caption: "Hasil rakitan Batch 1" },
-    { src: publicUrl("/media/b1-resi.jpg"), alt: "Resi pengiriman Shopee Batch 1", caption: "Resi pengiriman" },
-    { src: publicUrl("/media/b1-a.jpg"), alt: "Produk bag charm di tangan pembeli", caption: "Penyerahan pesanan" },
-    { src: publicUrl("/media/b1-b.jpg"), alt: "Dua pembeli menunjukkan pesanan", caption: "Dokumentasi pembeli" },
-    { src: publicUrl("/media/b1-c.jpg"), alt: "Dua pembeli memegang paket pesanan", caption: "Dokumentasi pembeli" },
-    { src: publicUrl("/media/b1-d.jpg"), alt: "Dua pembeli di area kampus", caption: "COD sekitar kampus" },
-    { src: publicUrl("/media/b1-e.jpg"), alt: "Dua pembeli duduk bersama pesanan", caption: "Dokumentasi pembeli" },
+    {
+      src: publicUrl("/media/b1-produk.jpg"),
+      alt: "Produk Batch 1 tersusun di atas rumput",
+      caption: "Hasil rakitan Batch 1",
+    },
+    {
+      src: publicUrl("/media/b1-resi.jpg"),
+      alt: "Resi pengiriman Shopee Batch 1",
+      caption: "Resi pengiriman",
+    },
+    {
+      src: publicUrl("/media/b1-a.jpg"),
+      alt: "Produk bag charm di tangan pembeli",
+      caption: "Penyerahan pesanan",
+    },
+    {
+      src: publicUrl("/media/b1-b.jpg"),
+      alt: "Dua pembeli menunjukkan pesanan",
+      caption: "Dokumentasi pembeli",
+    },
+    {
+      src: publicUrl("/media/b1-c.jpg"),
+      alt: "Dua pembeli memegang paket pesanan",
+      caption: "Dokumentasi pembeli",
+    },
+    {
+      src: publicUrl("/media/b1-d.jpg"),
+      alt: "Dua pembeli di area kampus",
+      caption: "COD sekitar kampus",
+    },
+    {
+      src: publicUrl("/media/b1-e.jpg"),
+      alt: "Dua pembeli duduk bersama pesanan",
+      caption: "Dokumentasi pembeli",
+    },
   ],
   batch2: [
-    { src: publicUrl("/media/b2-produk.jpg"), alt: "Produk Batch 2 tersusun di atas meja", caption: "Hasil rakitan Batch 2" },
-    { src: publicUrl("/media/b2-paket.jpg"), alt: "Paket polymailer merah muda siap kirim", caption: "Paket luar kota" },
-    { src: publicUrl("/media/b2-a.jpg"), alt: "Pembeli memegang pesanan Batch 2", caption: "Penyerahan pesanan" },
-    { src: publicUrl("/media/b2-b.jpg"), alt: "Pembeli menunjukkan charm di kelas", caption: "Dokumentasi pembeli" },
-    { src: publicUrl("/media/b2-c.jpg"), alt: "Pembeli memegang zip pouch", caption: "Dokumentasi pembeli" },
-    { src: publicUrl("/media/b2-d.jpg"), alt: "Pembeli menunjukkan dua pesanan", caption: "Dokumentasi pembeli" },
-    { src: publicUrl("/media/b2-e.jpg"), alt: "Pembeli memegang charm di kelas", caption: "Dokumentasi pembeli" },
-    { src: publicUrl("/media/b2-f.jpg"), alt: "Pembeli memegang paket pesanan", caption: "Dokumentasi pembeli" },
+    {
+      src: publicUrl("/media/b2-produk.jpg"),
+      alt: "Produk Batch 2 tersusun di atas meja",
+      caption: "Hasil rakitan Batch 2",
+    },
+    {
+      src: publicUrl("/media/b2-paket.jpg"),
+      alt: "Paket polymailer merah muda siap kirim",
+      caption: "Paket luar kota",
+    },
+    {
+      src: publicUrl("/media/b2-a.jpg"),
+      alt: "Pembeli memegang pesanan Batch 2",
+      caption: "Penyerahan pesanan",
+    },
+    {
+      src: publicUrl("/media/b2-b.jpg"),
+      alt: "Pembeli menunjukkan charm di kelas",
+      caption: "Dokumentasi pembeli",
+    },
+    {
+      src: publicUrl("/media/b2-c.jpg"),
+      alt: "Pembeli memegang zip pouch",
+      caption: "Dokumentasi pembeli",
+    },
+    {
+      src: publicUrl("/media/b2-d.jpg"),
+      alt: "Pembeli menunjukkan dua pesanan",
+      caption: "Dokumentasi pembeli",
+    },
+    {
+      src: publicUrl("/media/b2-e.jpg"),
+      alt: "Pembeli memegang charm di kelas",
+      caption: "Dokumentasi pembeli",
+    },
+    {
+      src: publicUrl("/media/b2-f.jpg"),
+      alt: "Pembeli memegang paket pesanan",
+      caption: "Dokumentasi pembeli",
+    },
   ],
 };
 

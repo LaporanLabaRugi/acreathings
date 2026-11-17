@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import { DownloadReportButton } from "@/components/download-report";
 import { PageHero, Prose, SectionHeading, SiteShell } from "@/components/site-shell";
 import { HppTable, SalesTable, SoldTable, Statement, TableWrap } from "@/components/tables";
 import {
+  assumptions,
   batchChart,
   hppBatch1,
   hppBatch2,
@@ -69,8 +71,18 @@ function BatchChart() {
             width={52}
           />
           <Tooltip content={<ChartTip />} cursor={{ fill: "var(--color-blush)" }} />
-          <Bar dataKey="penjualan" name="Penjualan" fill="var(--color-rose)" radius={[6, 6, 0, 0]} />
-          <Bar dataKey="hpp" name="HPP terjual" fill="var(--color-rose-deep)" radius={[6, 6, 0, 0]} />
+          <Bar
+            dataKey="penjualan"
+            name="Penjualan"
+            fill="var(--color-rose)"
+            radius={[6, 6, 0, 0]}
+          />
+          <Bar
+            dataKey="hpp"
+            name="HPP terjual"
+            fill="var(--color-rose-deep)"
+            radius={[6, 6, 0, 0]}
+          />
         </BarChart>
       </ResponsiveContainer>
     </div>
@@ -85,6 +97,19 @@ function Laporan() {
         title="Modal kembali, lalu berputar sendiri"
         text="Omzet naik dari Rp349.000 di Batch 1 menjadi Rp427.000 di Batch 2. Laba bersih dua batch sebesar Rp334.919, atau 43,1% dari pendapatan."
       />
+
+      <div id="unduh-laporan" className="no-print border-b border-line bg-blush">
+        <div className="mx-auto flex max-w-6xl flex-col gap-4 px-5 py-5 sm:flex-row sm:items-center sm:justify-between">
+          <div className="max-w-xl">
+            <p className="text-sm font-bold text-rose-deep">Berkas Excel</p>
+            <p className="mt-1 text-sm leading-relaxed text-ink">
+              Unduh laporan keuangan lengkap dan rapi: ringkasan, laba rugi, penjualan per batch,
+              HPP, beban, modal, dan arus kas.
+            </p>
+          </div>
+          <DownloadReportButton variant="prominent" />
+        </div>
+      </div>
 
       <div className="mx-auto max-w-6xl space-y-14 px-5 py-12">
         <section id="anggaran" className="scroll-mt-28">
@@ -104,8 +129,8 @@ function Laporan() {
           <div className="mt-6">
             <BatchChart />
             <p className="mt-2 text-sm text-muted">
-              Batang muda adalah penjualan, batang tua adalah HPP produk yang terjual. Laba kotor Batch 1{" "}
-              {rp(totals.gross1)}, Batch 2 {rp(totals.gross2)}.
+              Batang muda adalah penjualan, batang tua adalah HPP produk yang terjual. Laba kotor
+              Batch 1 {rp(totals.gross1)}, Batch 2 {rp(totals.gross2)}.
             </p>
           </div>
         </section>
@@ -113,13 +138,11 @@ function Laporan() {
         <section id="asumsi" className="scroll-mt-28">
           <SectionHeading title="Asumsi perhitungan" />
           <ol className="mt-5 grid gap-3 md:grid-cols-2">
-            {[
-              "HPP dihitung terpisah per batch karena harga carabiner, huruf akrilik, dan tali makrame berubah saat restock.",
-              "Bahan yang tidak dibeli lagi di Batch 2 — frame akrilik, plastik zipper, stiker logo, dan lobster hook — memakai harga beli Batch 1.",
-              "Cetak foto dan kemasan kiriman (polymailer, bubble wrap, dan cetak resi) sebesar Rp1.352 per paket dimasukkan ke HPP produk terjual.",
-              "Produksi dikerjakan manual oleh anggota. Kompensasi tenaga kerja tidak dibebankan sebagai biaya harian, melainkan dialokasikan dari laba bersih.",
-            ].map((text, index) => (
-              <li key={text} className="rounded-2xl border border-line bg-paper p-4 text-sm leading-relaxed">
+            {assumptions.map((text, index) => (
+              <li
+                key={text}
+                className="rounded-2xl border border-line bg-paper p-4 text-sm leading-relaxed"
+              >
                 <span className="font-bold text-rose-deep">{index + 1}. </span>
                 {text}
               </li>
@@ -158,8 +181,8 @@ function Laporan() {
             <SoldTable rows={soldBatch1} total={totals.hpp1} />
           </TableWrap>
           <p className="mt-3 text-sm text-muted">
-            Pendapatan Batch 1 {rp(totals.revenue1)} dikurangi HPP {rp(totals.hpp1)} menghasilkan laba kotor{" "}
-            {rp(totals.gross1)}.
+            Pendapatan Batch 1 {rp(totals.revenue1)} dikurangi HPP {rp(totals.hpp1)} menghasilkan
+            laba kotor {rp(totals.gross1)}.
           </p>
           <TableWrap caption="Penjualan Batch 2">
             <SalesTable rows={salesBatch2} totalQty={totals.units2} totalRp={totals.revenue2} />
@@ -168,8 +191,8 @@ function Laporan() {
             <SoldTable rows={soldBatch2} total={totals.hpp2} />
           </TableWrap>
           <p className="mt-3 text-sm text-muted">
-            Pendapatan Batch 2 {rp(totals.revenue2)} dikurangi HPP {rp(totals.hpp2)} menghasilkan laba kotor{" "}
-            {rp(totals.gross2)}.
+            Pendapatan Batch 2 {rp(totals.revenue2)} dikurangi HPP {rp(totals.hpp2)} menghasilkan
+            laba kotor {rp(totals.gross2)}.
           </p>
         </section>
 
@@ -192,15 +215,15 @@ function Laporan() {
                 <div className="bg-rose" style={{ width: "100%" }} />
               </div>
               <p className="mt-2 text-sm">
-                Realisasi {totals.units} unit sudah melewati titik impas {totals.bepUnits} unit. Penerimaan{" "}
-                {rp(totals.revenue)} menutup {totals.coverRatio} dari total modal bahan.
+                Realisasi {totals.units} unit sudah melewati titik impas {totals.bepUnits} unit.
+                Penerimaan {rp(totals.revenue)} menutup {totals.coverRatio} dari total modal bahan.
               </p>
             </div>
             <Prose>
               <p>
-                Pengembalian modal lebih cepat dari proyeksi rata-rata karena penjualan didominasi varian
-                bernilai lebih tinggi, yaitu Complete (Rp15.000) dan Combo Foto (Rp12.000). Usaha juga masih
-                menyimpan sisa bahan baku untuk periode berikutnya.
+                Pengembalian modal lebih cepat dari proyeksi rata-rata karena penjualan didominasi
+                varian bernilai lebih tinggi, yaitu Complete (Rp15.000) dan Combo Foto (Rp12.000).
+                Usaha juga masih menyimpan sisa bahan baku untuk periode berikutnya.
               </p>
             </Prose>
           </div>
@@ -214,8 +237,8 @@ function Laporan() {
           <Statement lines={incomeLines} />
           <Prose>
             <p>
-              Setelah pendapatan {rp(totals.revenue)} dikurangi beban pokok {rp(totals.hpp)} dan biaya
-              administrasi {rp(totals.opex)}, laba bersih usaha tercatat {rp(totals.net)}.
+              Setelah pendapatan {rp(totals.revenue)} dikurangi beban pokok {rp(totals.hpp)} dan
+              biaya administrasi {rp(totals.opex)}, laba bersih usaha tercatat {rp(totals.net)}.
             </p>
           </Prose>
         </section>
@@ -224,15 +247,16 @@ function Laporan() {
           <SectionHeading title="Evaluasi" />
           <Prose>
             <p>
-              Kinerja dua batch sesuai harapan dan menunjukkan tren positif. Omzet naik sekitar {totals.growth},
-              dari {rp(totals.revenue1)} menjadi {rp(totals.revenue2)}. Akumulasi pendapatan {rp(totals.revenue)}{" "}
-              menghasilkan laba bersih {rp(totals.net)}, setara margin {totals.netMargin}.
+              Kinerja dua batch sesuai harapan dan menunjukkan tren positif. Omzet naik sekitar{" "}
+              {totals.growth}, dari {rp(totals.revenue1)} menjadi {rp(totals.revenue2)}. Akumulasi
+              pendapatan {rp(totals.revenue)} menghasilkan laba bersih {rp(totals.net)}, setara
+              margin {totals.netMargin}.
             </p>
             <p>
-              Arus kas sudah dikelola secara mandiri. Iuran kelompok {rp(totals.capital1)} kembali sepenuhnya,
-              dan restock {rp(totals.restock)} murni dari hasil Batch 1. Per 2 Oktober 2026 saldo kas masih{" "}
-              {rp(totals.cashEnd)}, ditambah persediaan bahan yang belum terpakai. Posisi ini sehat untuk modal
-              operasional batch berikutnya.
+              Arus kas sudah dikelola secara mandiri. Iuran kelompok {rp(totals.capital1)} kembali
+              sepenuhnya, dan restock {rp(totals.restock)} murni dari hasil Batch 1. Per 2 Oktober
+              2026 saldo kas masih {rp(totals.cashEnd)}, ditambah persediaan bahan yang belum
+              terpakai. Posisi ini sehat untuk modal operasional batch berikutnya.
             </p>
           </Prose>
         </section>
@@ -241,18 +265,20 @@ function Laporan() {
           <SectionHeading title="Kesimpulan" />
           <Prose>
             <p>
-              Acrea Things adalah usaha bag charm yang memadukan tali makrame dengan elemen akrilik custom.
-              Modelnya B2C dengan sistem pre-order: bahan disiapkan di awal batch, lalu pemasaran dan penjualan
-              dilakukan online melalui Instagram, WhatsApp, dan Shopee.
+              Acrea Things adalah usaha bag charm yang memadukan tali makrame dengan elemen akrilik
+              custom. Modelnya B2C dengan sistem pre-order: bahan disiapkan di awal batch, lalu
+              pemasaran dan penjualan dilakukan online melalui Instagram, WhatsApp, dan Shopee.
             </p>
             <p>
-              Dua batch menghasilkan {totals.units} unit, pendapatan {rp(totals.revenue)}, dan laba bersih{" "}
-              {rp(totals.net)}. Penerimaan Batch 1 cukup untuk membiayai bahan Batch 2 sebesar{" "}
-              {rp(totals.restock)} tanpa modal tambahan. Arus kas usaha sehat, efisien, dan mandiri.
+              Dua batch menghasilkan {totals.units} unit, pendapatan {rp(totals.revenue)}, dan laba
+              bersih {rp(totals.net)}. Penerimaan Batch 1 cukup untuk membiayai bahan Batch 2
+              sebesar {rp(totals.restock)} tanpa modal tambahan. Arus kas usaha sehat, efisien, dan
+              mandiri.
             </p>
             <p>
-              Secara keseluruhan, Acrea Things menjadi sarana yang efektif untuk melatih kewirausahaan anggota
-              kelompok, mulai dari perencanaan produk, produksi, pemasaran digital, hingga pengelolaan keuangan.
+              Secara keseluruhan, Acrea Things menjadi sarana yang efektif untuk melatih
+              kewirausahaan anggota kelompok, mulai dari perencanaan produk, produksi, pemasaran
+              digital, hingga pengelolaan keuangan.
             </p>
           </Prose>
           <div className="mt-8">

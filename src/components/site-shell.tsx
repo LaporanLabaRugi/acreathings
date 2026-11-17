@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { Menu, MessageCircle, Printer, X } from "lucide-react";
+import { DownloadReportButton } from "@/components/download-report";
 import { identity } from "@/lib/report";
 import { publicUrl } from "@/lib/public-url";
 import { WHATSAPP_LABEL, WHATSAPP_NUMBER } from "@/lib/order";
@@ -38,7 +39,9 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
               className="size-11 shrink-0 rounded-full border border-line object-cover"
             />
             <span className="min-w-0">
-              <span className="block font-display text-lg leading-none text-rose-deep">Acrea Things</span>
+              <span className="block font-display text-lg leading-none text-rose-deep">
+                Acrea Things
+              </span>
               <span className="mt-1 block text-xs text-muted">Bag charm custom</span>
             </span>
           </Link>
@@ -55,6 +58,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
                 {item.label}
               </Link>
             ))}
+            <DownloadReportButton variant="nav" />
           </nav>
           <div className="flex items-center gap-2">
             <Link
@@ -64,6 +68,9 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
               <MessageCircle className="size-4" aria-hidden />
               <span className="hidden sm:inline">Pesan</span>
             </Link>
+            <div className="lg:hidden">
+              <DownloadReportButton variant="header" />
+            </div>
             <button
               type="button"
               onClick={() => window.print()}
@@ -85,7 +92,10 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
         </div>
         {open ? (
           <nav className="border-t border-line px-3 py-2 lg:hidden" aria-label="Utama">
-            <Link to="/pesan" className="block rounded-md bg-rose-deep px-3 py-3 text-sm font-bold text-paper">
+            <Link
+              to="/pesan"
+              className="block rounded-md bg-rose-deep px-3 py-3 text-sm font-bold text-paper"
+            >
               Pesan via WhatsApp
             </Link>
             {NAV.map((item) => (
@@ -100,6 +110,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
                 {item.label}
               </Link>
             ))}
+            <DownloadReportButton variant="menu" />
           </nav>
         ) : null}
       </header>
@@ -146,6 +157,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
                   {item.label}
                 </Link>
               ))}
+              <DownloadReportButton variant="footer" />
             </div>
           </div>
         </div>
@@ -157,20 +169,14 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
   );
 }
 
-export function PageHero({
-  kicker,
-  title,
-  text,
-}: {
-  kicker: string;
-  title: string;
-  text: string;
-}) {
+export function PageHero({ kicker, title, text }: { kicker: string; title: string; text: string }) {
   return (
     <section className="border-b border-line bg-paper">
       <div className="mx-auto max-w-6xl px-5 py-10 md:py-14">
         <p className="text-xs font-bold tracking-widest text-rose uppercase">{kicker}</p>
-        <h1 className="font-display mt-2 max-w-3xl text-4xl leading-tight text-ink md:text-5xl">{title}</h1>
+        <h1 className="font-display mt-2 max-w-3xl text-4xl leading-tight text-ink md:text-5xl">
+          {title}
+        </h1>
         <p className="mt-4 max-w-2xl text-base text-muted md:text-lg">{text}</p>
       </div>
     </section>
@@ -188,7 +194,9 @@ export function SectionHeading({
 }) {
   return (
     <div className="max-w-3xl">
-      {kicker ? <p className="text-xs font-bold tracking-widest text-rose uppercase">{kicker}</p> : null}
+      {kicker ? (
+        <p className="text-xs font-bold tracking-widest text-rose uppercase">{kicker}</p>
+      ) : null}
       <h2 className="font-display mt-1 text-3xl text-ink">{title}</h2>
       {text ? <p className="mt-2 text-muted">{text}</p> : null}
     </div>
@@ -196,5 +204,7 @@ export function SectionHeading({
 }
 
 export function Prose({ children }: { children: React.ReactNode }) {
-  return <div className="mt-5 max-w-3xl space-y-4 text-base leading-relaxed text-ink">{children}</div>;
+  return (
+    <div className="mt-5 max-w-3xl space-y-4 text-base leading-relaxed text-ink">{children}</div>
+  );
 }
