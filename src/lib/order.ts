@@ -28,16 +28,16 @@ export const ships: { id: ShipId; label: string }[] = [
 ];
 
 export const colorways: { name: string; src: string }[] = [
-  { name: "Spiderman", src: publicUrl("/media/colors/spidermanjpg") },
-  { name: "Rarity", src: publicUrl("/media/colors/rarityjpg") },
-  { name: "Carat", src: publicUrl("/media/colors/caratjpg") },
-  { name: "Cinnamoroll", src: publicUrl("/media/colors/cinnamorolljpg") },
-  { name: "Hello Kitty", src: publicUrl("/media/colors/hello-kittyjpg") },
-  { name: "Ariel", src: publicUrl("/media/colors/arieljpg") },
-  { name: "Panda", src: publicUrl("/media/colors/pandajpg") },
-  { name: "Blueberry", src: publicUrl("/media/colors/blueberryjpg") },
-  { name: "Strawberry Matcha", src: publicUrl("/media/colors/strawberry-matchajpg") },
-  { name: "Winnie the Pooh", src: publicUrl("/media/colors/winniejpg") },
+  { name: "Spiderman", src: publicUrl("/media/colors/spiderman.jpg") },
+  { name: "Rarity", src: publicUrl("/media/colors/rarity.jpg") },
+  { name: "Carat", src: publicUrl("/media/colors/carat.jpg") },
+  { name: "Cinnamoroll", src: publicUrl("/media/colors/cinnamoroll.jpg") },
+  { name: "Hello Kitty", src: publicUrl("/media/colors/hello-kitty.jpg") },
+  { name: "Ariel", src: publicUrl("/media/colors/ariel.jpg") },
+  { name: "Panda", src: publicUrl("/media/colors/panda.jpg") },
+  { name: "Blueberry", src: publicUrl("/media/colors/blueberry.jpg") },
+  { name: "Strawberry Matcha", src: publicUrl("/media/colors/strawberry-matcha.jpg") },
+  { name: "Winnie the Pooh", src: publicUrl("/media/colors/winnie.jpg") },
 ];
 
 export function frameSrc(frame: number) {
