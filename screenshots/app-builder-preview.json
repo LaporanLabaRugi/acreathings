@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Beranda — Acrea Things",
+      "hasCanvas": false,
+      "bodyTextLen": 2608,
+      "bodyTextHash": "8efd1a2245bacd279a441f40513da0ce9cd590fe2fb093d1e6dccde0c261acfa",
+      "bodyTextPrefix": "Acrea Things Bag charm custom Beranda Tentang Produk Organisasi ",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Beranda — Acrea Things",
+      "hasCanvas": false,
+      "bodyTextLen": 2541,
+      "bodyTextHash": "c8dc8354c590a28511d205f7d5343ae508e68330c7fe792ff87ddec2365cc6ea",
+      "bodyTextPrefix": "Acrea Things Bag charm custom HANDMADE · MAGELANG Bag charm yang",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}
