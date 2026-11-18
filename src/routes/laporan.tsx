@@ -103,8 +103,7 @@ function Laporan() {
           <div className="max-w-xl">
             <p className="text-sm font-bold text-rose-deep">Berkas Excel</p>
             <p className="mt-1 text-sm leading-relaxed text-ink">
-              Unduh laporan keuangan lengkap dan rapi: ringkasan, laba rugi, penjualan per batch,
-              HPP, beban, modal, dan arus kas.
+              Unduh laporan laba rugi periode Oktober 2026. Berkas ini hanya berisi laporan laba rugi.
             </p>
           </div>
           <DownloadReportButton variant="prominent" />

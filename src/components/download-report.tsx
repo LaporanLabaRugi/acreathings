@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Download } from "lucide-react";
 
-const LABEL = "Unduh Laporan Keuangan (Excel)";
+const LABEL = "Unduh Laporan Laba Rugi (Excel)";
 
 type Variant = "prominent" | "nav" | "header" | "menu" | "footer";
 
@@ -57,7 +57,7 @@ export function DownloadReportButton({ variant }: { variant: Variant }) {
         aria-busy={busy}
         className="rounded-md px-3 py-2 text-sm font-bold whitespace-nowrap text-rose-deep hover:bg-blush disabled:opacity-60"
       >
-        {busy ? "Menyiapkan…" : "Unduh Excel"}
+        {busy ? "Menyiapkan…" : LABEL}
       </button>
     );
   }
@@ -90,7 +90,7 @@ export function DownloadReportButton({ variant }: { variant: Variant }) {
           aria-busy={busy}
           className="text-left text-sm text-paper/85 hover:text-paper disabled:opacity-60"
         >
-          {busy ? "Menyiapkan berkas…" : "Unduh laporan (Excel)"}
+          {busy ? "Menyiapkan berkas…" : LABEL}
         </button>
         {error}
       </div>
