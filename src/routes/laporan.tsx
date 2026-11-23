@@ -101,9 +101,10 @@ function Laporan() {
       <div id="unduh-laporan" className="no-print border-b border-line bg-blush">
         <div className="mx-auto flex max-w-6xl flex-col gap-4 px-5 py-5 sm:flex-row sm:items-center sm:justify-between">
           <div className="max-w-xl">
-            <p className="text-sm font-bold text-rose-deep">Berkas Excel</p>
+            <p className="text-sm font-bold text-rose-deep">Unduh laporan</p>
             <p className="mt-1 text-sm leading-relaxed text-ink">
-              Unduh laporan laba rugi periode Oktober 2026. Berkas ini hanya berisi laporan laba rugi.
+              Pilih Excel atau PDF untuk laporan laba rugi periode Oktober 2026. Kedua berkas memuat
+              judul, periode, pendapatan, beban, dan laba yang sama.
             </p>
           </div>
           <DownloadReportButton variant="prominent" />
